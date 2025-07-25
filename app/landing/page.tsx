@@ -107,7 +107,7 @@ export default function LandingPage() {
                   Sign In
                 </Button>
               </Link>
-              <Link href="/">
+              <Link href="/signup">
                 <Button className="bg-gradient-to-r from-blue-800 to-yellow-600 hover:from-blue-900 hover:to-yellow-700">
                   Get Started
                 </Button>
