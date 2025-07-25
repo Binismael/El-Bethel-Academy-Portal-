@@ -102,7 +102,7 @@ export default function LandingPage() {
               </div>
             </div>
             <div className="flex items-center space-x-4">
-              <Link href="/signup.tsx">
+              <Link href="/signup">
                 <Button variant="outline" className="bg-white/50 hover:bg-white/80">
                   Sign In
                 </Button>
