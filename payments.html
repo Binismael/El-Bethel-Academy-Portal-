@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payments - El Bethel Academy</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/components.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <div class="nav-left">
+                <div class="logo-container">
+                    <img src="images/logo.png" alt="El Bethel Academy" class="nav-logo">
+                    <span class="school-name">El Bethel Academy</span>
+                </div>
+            </div>
+            
+            <div class="nav-center">
+                <div class="nav-links">
+                    <a href="index.html" class="nav-link">
+                        <i class="fas fa-home"></i>
+                        Home
+                    </a>
+                    <a href="payments.html" class="nav-link active">
+                        <i class="fas fa-credit-card"></i>
+                        Payments
+                    </a>
+                    <a href="notifications.html" class="nav-link">
+                        <i class="fas fa-bell"></i>
+                        Notifications
+                        <span class="notification-badge">3</span>
+                    </a>
+                    <a href="profile.html" class="nav-link">
+                        <i class="fas fa-user"></i>
+                        Profile
+                    </a>
+                    <a href="settings.html" class="nav-link">
+                        <i class="fas fa-cog"></i>
+                        Settings
+                    </a>
+                </div>
+            </div>
+            
+            <div class="nav-right">
+                <div class="nav-actions">
+                    <button class="nav-action-btn theme-toggle" id="themeToggle">
+                        <i class="fas fa-sun"></i>
+                    </button>
+                    <div class="profile-dropdown">
+                        <button class="profile-btn" id="profileBtn">
+                            <img src="images/placeholder-user.jpg" alt="User" class="profile-avatar">
+                            <span class="profile-name">Guest User</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="dropdown-menu" id="profileDropdown">
+                            <a href="profile.html" class="dropdown-item">
+                                <i class="fas fa-user"></i>
+                                Profile
+                            </a>
+                            <a href="settings.html" class="dropdown-item">
+                                <i class="fas fa-cog"></i>
+                                Settings
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <button class="dropdown-item" id="logoutBtn">
+                                <i class="fas fa-sign-out-alt"></i>
+                                Logout
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="container">
+            <!-- Page Header -->
+            <div class="page-header">
+                <div class="header-content">
+                    <h1><i class="fas fa-credit-card"></i> Payments</h1>
+                    <p class="page-subtitle">Manage your school fees and payment history</p>
+                </div>
+                <div class="header-actions">
+                    <button class="btn btn-outline">
+                        <i class="fas fa-download"></i>
+                        Download Receipt
+                    </button>
+                    <button class="btn btn-primary">
+                        <i class="fas fa-plus"></i>
+                        Make Payment
+                    </button>
+                </div>
+            </div>
+
+            <!-- Payment Overview -->
+            <div class="payment-overview">
+                <div class="overview-card balance">
+                    <div class="card-icon">
+                        <i class="fas fa-wallet"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>Current Balance</h3>
+                        <div class="amount">₦15,000</div>
+                        <div class="status outstanding">Outstanding</div>
+                    </div>
+                </div>
+                
+                <div class="overview-card paid">
+                    <div class="card-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>Total Paid</h3>
+                        <div class="amount">₦135,000</div>
+                        <div class="status success">This Session</div>
+                    </div>
+                </div>
+                
+                <div class="overview-card due">
+                    <div class="card-icon">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>Next Due Date</h3>
+                        <div class="amount">Jan 30, 2025</div>
+                        <div class="status warning">7 days left</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Payment History -->
+            <div class="payment-section">
+                <div class="section-header">
+                    <h2>Payment History</h2>
+                    <div class="section-filters">
+                        <select class="filter-select">
+                            <option value="all">All Payments</option>
+                            <option value="completed">Completed</option>
+                            <option value="pending">Pending</option>
+                            <option value="failed">Failed</option>
+                        </select>
+                        <select class="filter-select">
+                            <option value="2025">2024/2025 Session</option>
+                            <option value="2024">2023/2024 Session</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="payment-table">
+                    <div class="table-header">
+                        <div class="table-cell">Date</div>
+                        <div class="table-cell">Description</div>
+                        <div class="table-cell">Amount</div>
+                        <div class="table-cell">Status</div>
+                        <div class="table-cell">Actions</div>
+                    </div>
+                    
+                    <div class="table-row">
+                        <div class="table-cell">
+                            <div class="date-info">
+                                <div class="date">Jan 15, 2025</div>
+                                <div class="time">10:30 AM</div>
+                            </div>
+                        </div>
+                        <div class="table-cell">
+                            <div class="payment-info">
+                                <div class="payment-title">Second Term Fees</div>
+                                <div class="payment-subtitle">Academic Year 2024/2025</div>
+                            </div>
+                        </div>
+                        <div class="table-cell">
+                            <div class="amount">₦45,000</div>
+                        </div>
+                        <div class="table-cell">
+                            <span class="status-badge success">Completed</span>
+                        </div>
+                        <div class="table-cell">
+                            <div class="action-buttons">
+                                <button class="btn btn-sm btn-outline">
+                                    <i class="fas fa-download"></i>
+                                    Receipt
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="table-row">
+                        <div class="table-cell">
+                            <div class="date-info">
+                                <div class="date">Dec 10, 2024</div>
+                                <div class="time">2:15 PM</div>
+                            </div>
+                        </div>
+                        <div class="table-cell">
+                            <div class="payment-info">
+                                <div class="payment-title">First Term Fees</div>
+                                <div class="payment-subtitle">Academic Year 2024/2025</div>
+                            </div>
+                        </div>
+                        <div class="table-cell">
+                            <div class="amount">₦45,000</div>
+                        </div>
+                        <div class="table-cell">
+                            <span class="status-badge success">Completed</span>
+                        </div>
+                        <div class="table-cell">
+                            <div class="action-buttons">
+                                <button class="btn btn-sm btn-outline">
+                                    <i class="fas fa-download"></i>
+                                    Receipt
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="table-row">
+                        <div class="table-cell">
+                            <div class="date-info">
+                                <div class="date">Nov 20, 2024</div>
+                                <div class="time">11:45 AM</div>
+                            </div>
+                        </div>
+                        <div class="table-cell">
+                            <div class="payment-info">
+                                <div class="payment-title">Development Levy</div>
+                                <div class="payment-subtitle">Annual Development Fee</div>
+                            </div>
+                        </div>
+                        <div class="table-cell">
+                            <div class="amount">₦15,000</div>
+                        </div>
+                        <div class="table-cell">
+                            <span class="status-badge success">Completed</span>
+                        </div>
+                        <div class="table-cell">
+                            <div class="action-buttons">
+                                <button class="btn btn-sm btn-outline">
+                                    <i class="fas fa-download"></i>
+                                    Receipt
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="table-row">
+                        <div class="table-cell">
+                            <div class="date-info">
+                                <div class="date">Oct 15, 2024</div>
+                                <div class="time">9:20 AM</div>
+                            </div>
+                        </div>
+                        <div class="table-cell">
+                            <div class="payment-info">
+                                <div class="payment-title">Uniform & Books</div>
+                                <div class="payment-subtitle">School Materials</div>
+                            </div>
+                        </div>
+                        <div class="table-cell">
+                            <div class="amount">₦30,000</div>
+                        </div>
+                        <div class="table-cell">
+                            <span class="status-badge success">Completed</span>
+                        </div>
+                        <div class="table-cell">
+                            <div class="action-buttons">
+                                <button class="btn btn-sm btn-outline">
+                                    <i class="fas fa-download"></i>
+                                    Receipt
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Outstanding Payments -->
+            <div class="payment-section">
+                <div class="section-header">
+                    <h2>Outstanding Payments</h2>
+                    <p>Complete these payments to avoid any academic disruption</p>
+                </div>
+                
+                <div class="outstanding-payments">
+                    <div class="outstanding-card urgent">
+                        <div class="card-header">
+                            <div class="payment-type">
+                                <i class="fas fa-exclamation-triangle"></i>
+                                <span>Third Term Fees</span>
+                            </div>
+                            <div class="due-date">Due: Jan 30, 2025</div>
+                        </div>
+                        <div class="card-content">
+                            <div class="amount-section">
+                                <div class="amount">₦45,000</div>
+                                <div class="description">Academic Year 2024/2025 - Third Term</div>
+                            </div>
+                            <div class="payment-actions">
+                                <button class="btn btn-primary">
+                                    <i class="fas fa-credit-card"></i>
+                                    Pay Now
+                                </button>
+                                <button class="btn btn-outline">
+                                    <i class="fas fa-calendar"></i>
+                                    Schedule Payment
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Payment Methods -->
+            <div class="payment-section">
+                <div class="section-header">
+                    <h2>Payment Methods</h2>
+                    <p>Choose your preferred payment method</p>
+                </div>
+                
+                <div class="payment-methods">
+                    <div class="method-card">
+                        <div class="method-icon">
+                            <i class="fas fa-university"></i>
+                        </div>
+                        <div class="method-info">
+                            <h3>Bank Transfer</h3>
+                            <p>Direct transfer to school account</p>
+                        </div>
+                        <button class="btn btn-outline">Select</button>
+                    </div>
+                    
+                    <div class="method-card">
+                        <div class="method-icon">
+                            <i class="fas fa-credit-card"></i>
+                        </div>
+                        <div class="method-info">
+                            <h3>Debit/Credit Card</h3>
+                            <p>Pay with your Visa or Mastercard</p>
+                        </div>
+                        <button class="btn btn-outline">Select</button>
+                    </div>
+                    
+                    <div class="method-card">
+                        <div class="method-icon">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <div class="method-info">
+                            <h3>Mobile Money</h3>
+                            <p>Pay with your mobile wallet</p>
+                        </div>
+                        <button class="btn btn-outline">Select</button>
+                    </div>
+                    
+                    <div class="method-card">
+                        <div class="method-icon">
+                            <i class="fas fa-qrcode"></i>
+                        </div>
+                        <div class="method-info">
+                            <h3>QR Code</h3>
+                            <p>Scan QR code to pay instantly</p>
+                        </div>
+                        <button class="btn btn-outline">Select</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Container -->
+    <div id="toastContainer" class="toast-container"></div>
+
+    <script src="js/main.js"></script>
+    <script src="js/navigation.js"></script>
+</body>
+</html>

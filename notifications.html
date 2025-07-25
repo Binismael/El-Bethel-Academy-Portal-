@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notifications - El Bethel Academy</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/components.css">
+    <link rel="stylesheet" href="styles/notifications.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <div class="nav-left">
+                <div class="logo-container">
+                    <img src="images/logo.png" alt="El Bethel Academy" class="nav-logo">
+                    <span class="school-name">El Bethel Academy</span>
+                </div>
+            </div>
+            
+            <div class="nav-center">
+                <div class="nav-links">
+                    <a href="index.html" class="nav-link">
+                        <i class="fas fa-home"></i>
+                        Home
+                    </a>
+                    <a href="payments.html" class="nav-link">
+                        <i class="fas fa-credit-card"></i>
+                        Payments
+                    </a>
+                    <a href="notifications.html" class="nav-link active">
+                        <i class="fas fa-bell"></i>
+                        Notifications
+                        <span class="notification-badge">3</span>
+                    </a>
+                    <a href="profile.html" class="nav-link">
+                        <i class="fas fa-user"></i>
+                        Profile
+                    </a>
+                    <a href="settings.html" class="nav-link">
+                        <i class="fas fa-cog"></i>
+                        Settings
+                    </a>
+                </div>
+            </div>
+            
+            <div class="nav-right">
+                <div class="nav-actions">
+                    <button class="nav-action-btn theme-toggle" id="themeToggle">
+                        <i class="fas fa-sun"></i>
+                    </button>
+                    <div class="profile-dropdown">
+                        <button class="profile-btn" id="profileBtn">
+                            <img src="images/placeholder-user.jpg" alt="User" class="profile-avatar">
+                            <span class="profile-name">Guest User</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="dropdown-menu" id="profileDropdown">
+                            <a href="profile.html" class="dropdown-item">
+                                <i class="fas fa-user"></i>
+                                Profile
+                            </a>
+                            <a href="settings.html" class="dropdown-item">
+                                <i class="fas fa-cog"></i>
+                                Settings
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <button class="dropdown-item" id="logoutBtn">
+                                <i class="fas fa-sign-out-alt"></i>
+                                Logout
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="container">
+            <!-- Page Header -->
+            <div class="page-header">
+                <div class="header-content">
+                    <h1><i class="fas fa-bell"></i> Notifications</h1>
+                    <p class="page-subtitle">Stay updated with the latest announcements and activities</p>
+                </div>
+                <div class="header-actions">
+                    <button class="btn btn-outline" id="markAllReadBtn">
+                        <i class="fas fa-check-double"></i>
+                        Mark All Read
+                    </button>
+                    <button class="btn btn-primary" id="refreshBtn">
+                        <i class="fas fa-sync-alt"></i>
+                        Refresh
+                    </button>
+                </div>
+            </div>
+
+            <!-- Notification Filters -->
+            <div class="notification-filters">
+                <button class="filter-btn active" data-filter="all">
+                    <i class="fas fa-list"></i>
+                    All Notifications
+                    <span class="filter-count">8</span>
+                </button>
+                <button class="filter-btn" data-filter="unread">
+                    <i class="fas fa-envelope"></i>
+                    Unread
+                    <span class="filter-count">3</span>
+                </button>
+                <button class="filter-btn" data-filter="academic">
+                    <i class="fas fa-graduation-cap"></i>
+                    Academic
+                    <span class="filter-count">4</span>
+                </button>
+                <button class="filter-btn" data-filter="payment">
+                    <i class="fas fa-credit-card"></i>
+                    Payment
+                    <span class="filter-count">2</span>
+                </button>
+                <button class="filter-btn" data-filter="system">
+                    <i class="fas fa-cog"></i>
+                    System
+                    <span class="filter-count">2</span>
+                </button>
+            </div>
+
+            <!-- Notifications List -->
+            <div class="notifications-container">
+                <div class="notifications-list" id="notificationsList">
+                    <!-- Unread Notifications -->
+                    <div class="notification-item unread" data-category="academic" data-id="1">
+                        <div class="notification-indicator">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <div class="notification-content">
+                            <div class="notification-header">
+                                <h3>New Assignment Posted</h3>
+                                <div class="notification-meta">
+                                    <span class="notification-time">5 minutes ago</span>
+                                    <span class="notification-category academic">Academic</span>
+                                </div>
+                            </div>
+                            <p class="notification-message">Mathematics assignment on Calculus has been posted. Due date: January 25, 2025</p>
+                            <div class="notification-actions">
+                                <button class="btn btn-sm btn-primary">View Assignment</button>
+                                <button class="btn btn-sm btn-outline mark-read-btn">Mark as Read</button>
+                            </div>
+                        </div>
+                        <button class="notification-close" onclick="removeNotification(1)">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+
+                    <div class="notification-item unread" data-category="system" data-id="2">
+                        <div class="notification-indicator">
+                            <i class="fas fa-exclamation-triangle"></i>
+                        </div>
+                        <div class="notification-content">
+                            <div class="notification-header">
+                                <h3>System Maintenance Scheduled</h3>
+                                <div class="notification-meta">
+                                    <span class="notification-time">15 minutes ago</span>
+                                    <span class="notification-category system">System</span>
+                                </div>
+                            </div>
+                            <p class="notification-message">Scheduled maintenance on January 22, 2025 from 2:00 AM to 4:00 AM. Services may be temporarily unavailable.</p>
+                            <div class="notification-actions">
+                                <button class="btn btn-sm btn-outline mark-read-btn">Mark as Read</button>
+                            </div>
+                        </div>
+                        <button class="notification-close" onclick="removeNotification(2)">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+
+                    <div class="notification-item unread special-event" data-category="academic" data-id="3">
+                        <div class="notification-indicator">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <div class="notification-content">
+                            <div class="notification-header">
+                                <h3>🎉 Wedding Celebration Announcement</h3>
+                                <div class="notification-meta">
+                                    <span class="notification-time">30 minutes ago</span>
+                                    <span class="notification-category special">Special Event</span>
+                                </div>
+                            </div>
+                            <p class="notification-message">Join us in celebrating the wedding of Mr. John Smith (Mathematics Teacher) and Ms. Sarah Johnson. Ceremony on February 14, 2025.</p>
+                            <div class="notification-actions">
+                                <button class="btn btn-sm btn-primary">RSVP</button>
+                                <button class="btn btn-sm btn-outline">View Details</button>
+                                <button class="btn btn-sm btn-outline mark-read-btn">Mark as Read</button>
+                            </div>
+                        </div>
+                        <button class="notification-close" onclick="removeNotification(3)">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+
+                    <!-- Read Notifications -->
+                    <div class="notification-item read" data-category="payment" data-id="4">
+                        <div class="notification-indicator">
+                            <i class="fas fa-credit-card"></i>
+                        </div>
+                        <div class="notification-content">
+                            <div class="notification-header">
+                                <h3>Payment Confirmation</h3>
+                                <div class="notification-meta">
+                                    <span class="notification-time">1 hour ago</span>
+                                    <span class="notification-category payment">Payment</span>
+                                </div>
+                            </div>
+                            <p class="notification-message">Your school fee payment of ₦45,000 has been successfully processed. Receipt #EBA2025001</p>
+                            <div class="notification-actions">
+                                <button class="btn btn-sm btn-outline">Download Receipt</button>
+                            </div>
+                        </div>
+                        <button class="notification-close" onclick="removeNotification(4)">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+
+                    <div class="notification-item read" data-category="academic" data-id="5">
+                        <div class="notification-indicator">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="notification-content">
+                            <div class="notification-header">
+                                <h3>Grade Updated</h3>
+                                <div class="notification-meta">
+                                    <span class="notification-time">2 hours ago</span>
+                                    <span class="notification-category academic">Academic</span>
+                                </div>
+                            </div>
+                            <p class="notification-message">Your Chemistry test score has been updated. New grade: A (85%)</p>
+                            <div class="notification-actions">
+                                <button class="btn btn-sm btn-outline">View Grade Details</button>
+                            </div>
+                        </div>
+                        <button class="notification-close" onclick="removeNotification(5)">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+
+                    <div class="notification-item read" data-category="academic" data-id="6">
+                        <div class="notification-indicator">
+                            <i class="fas fa-calendar-alt"></i>
+                        </div>
+                        <div class="notification-content">
+                            <div class="notification-header">
+                                <h3>Exam Schedule Released</h3>
+                                <div class="notification-meta">
+                                    <span class="notification-time">1 day ago</span>
+                                    <span class="notification-category academic">Academic</span>
+                                </div>
+                            </div>
+                            <p class="notification-message">Mid-term examination schedule for SS2A has been published. Check your dashboard for details.</p>
+                            <div class="notification-actions">
+                                <button class="btn btn-sm btn-outline">View Schedule</button>
+                            </div>
+                        </div>
+                        <button class="notification-close" onclick="removeNotification(6)">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+
+                    <div class="notification-item read" data-category="payment" data-id="7">
+                        <div class="notification-indicator">
+                            <i class="fas fa-exclamation-circle"></i>
+                        </div>
+                        <div class="notification-content">
+                            <div class="notification-header">
+                                <h3>Payment Reminder</h3>
+                                <div class="notification-meta">
+                                    <span class="notification-time">2 days ago</span>
+                                    <span class="notification-category payment">Payment</span>
+                                </div>
+                            </div>
+                            <p class="notification-message">Reminder: Second term fees are due by January 30, 2025. Amount: ₦45,000</p>
+                            <div class="notification-actions">
+                                <button class="btn btn-sm btn-outline">Make Payment</button>
+                            </div>
+                        </div>
+                        <button class="notification-close" onclick="removeNotification(7)">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+
+                    <div class="notification-item read" data-category="system" data-id="8">
+                        <div class="notification-indicator">
+                            <i class="fas fa-info-circle"></i>
+                        </div>
+                        <div class="notification-content">
+                            <div class="notification-header">
+                                <h3>Platform Update</h3>
+                                <div class="notification-meta">
+                                    <span class="notification-time">3 days ago</span>
+                                    <span class="notification-category system">System</span>
+                                </div>
+                            </div>
+                            <p class="notification-message">New features have been added to the platform including AI-powered study recommendations and enhanced mobile experience.</p>
+                            <div class="notification-actions">
+                                <button class="btn btn-sm btn-outline">Learn More</button>
+                            </div>
+                        </div>
+                        <button class="notification-close" onclick="removeNotification(8)">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Empty State -->
+                <div class="empty-state" id="emptyState" style="display: none;">
+                    <div class="empty-icon">
+                        <i class="fas fa-bell-slash"></i>
+                    </div>
+                    <h3>No notifications found</h3>
+                    <p>You're all caught up! Check back later for new updates.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Container -->
+    <div id="toastContainer" class="toast-container"></div>
+
+    <script src="js/main.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="js/notifications.js"></script>
+</body>
+</html>

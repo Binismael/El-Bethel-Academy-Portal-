@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings - El Bethel Academy</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/components.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <div class="nav-left">
+                <div class="logo-container">
+                    <img src="images/logo.png" alt="El Bethel Academy" class="nav-logo">
+                    <span class="school-name">El Bethel Academy</span>
+                </div>
+            </div>
+            
+            <div class="nav-center">
+                <div class="nav-links">
+                    <a href="index.html" class="nav-link">
+                        <i class="fas fa-home"></i>
+                        Home
+                    </a>
+                    <a href="payments.html" class="nav-link">
+                        <i class="fas fa-credit-card"></i>
+                        Payments
+                    </a>
+                    <a href="notifications.html" class="nav-link">
+                        <i class="fas fa-bell"></i>
+                        Notifications
+                        <span class="notification-badge">3</span>
+                    </a>
+                    <a href="profile.html" class="nav-link">
+                        <i class="fas fa-user"></i>
+                        Profile
+                    </a>
+                    <a href="settings.html" class="nav-link active">
+                        <i class="fas fa-cog"></i>
+                        Settings
+                    </a>
+                </div>
+            </div>
+            
+            <div class="nav-right">
+                <div class="nav-actions">
+                    <button class="nav-action-btn theme-toggle" id="themeToggle">
+                        <i class="fas fa-sun"></i>
+                    </button>
+                    <div class="profile-dropdown">
+                        <button class="profile-btn" id="profileBtn">
+                            <img src="images/placeholder-user.jpg" alt="User" class="profile-avatar">
+                            <span class="profile-name">Guest User</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="dropdown-menu" id="profileDropdown">
+                            <a href="profile.html" class="dropdown-item">
+                                <i class="fas fa-user"></i>
+                                Profile
+                            </a>
+                            <a href="settings.html" class="dropdown-item active">
+                                <i class="fas fa-cog"></i>
+                                Settings
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <button class="dropdown-item" id="logoutBtn">
+                                <i class="fas fa-sign-out-alt"></i>
+                                Logout
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="container">
+            <!-- Page Header -->
+            <div class="page-header">
+                <div class="header-content">
+                    <h1><i class="fas fa-cog"></i> Settings</h1>
+                    <p class="page-subtitle">Customize your experience and manage your preferences</p>
+                </div>
+                <div class="header-actions">
+                    <button class="btn btn-outline" id="resetSettingsBtn">
+                        <i class="fas fa-undo"></i>
+                        Reset to Default
+                    </button>
+                    <button class="btn btn-primary" id="saveSettingsBtn">
+                        <i class="fas fa-save"></i>
+                        Save Changes
+                    </button>
+                </div>
+            </div>
+
+            <!-- Settings Content -->
+            <div class="settings-container">
+                <!-- Settings Sidebar -->
+                <div class="settings-sidebar">
+                    <div class="settings-menu">
+                        <button class="settings-menu-item active" data-section="general">
+                            <i class="fas fa-cog"></i>
+                            General
+                        </button>
+                        <button class="settings-menu-item" data-section="appearance">
+                            <i class="fas fa-palette"></i>
+                            Appearance
+                        </button>
+                        <button class="settings-menu-item" data-section="notifications">
+                            <i class="fas fa-bell"></i>
+                            Notifications
+                        </button>
+                        <button class="settings-menu-item" data-section="privacy">
+                            <i class="fas fa-shield-alt"></i>
+                            Privacy & Security
+                        </button>
+                        <button class="settings-menu-item" data-section="language">
+                            <i class="fas fa-globe"></i>
+                            Language & Region
+                        </button>
+                        <button class="settings-menu-item" data-section="accessibility">
+                            <i class="fas fa-universal-access"></i>
+                            Accessibility
+                        </button>
+                        <button class="settings-menu-item" data-section="advanced">
+                            <i class="fas fa-tools"></i>
+                            Advanced
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Settings Content -->
+                <div class="settings-content">
+                    <!-- General Settings -->
+                    <div class="settings-section active" id="general">
+                        <div class="section-header">
+                            <h2>General Settings</h2>
+                            <p>Basic preferences and account settings</p>
+                        </div>
+                        
+                        <div class="settings-group">
+                            <h3>Account Information</h3>
+                            <div class="setting-item">
+                                <div class="setting-info">
+                                    <label>Display Name</label>
+                                    <p>How your name appears to others</p>
+                                </div>
+                                <input type="text" value="John Doe" class="setting-input">
+                            </div>
+                            
+                            <div class="setting-item">
+                                <div class="setting-info">
+                                    <label>Email Address</label>
+                                    <p>Your primary email for notifications</p>
+                                </div>
+                                <input type="email" value="john.doe@student.elbethel.edu" class="setting-input">
+                            </div>
+                            
+                            <div class="setting-item">
+                                <div class="setting-info">
+                                    <label>Time Zone</label>
+                                    <p>Used for scheduling and notifications</p>
+                                </div>
+                                <select class="setting-select">
+                                    <option value="WAT" selected>West Africa Time (WAT)</option>
+                                    <option value="GMT">Greenwich Mean Time (GMT)</option>
+                                    <option value="EST">Eastern Standard Time (EST)</option>
+                                    <option value="PST">Pacific Standard Time (PST)</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="settings-group">
+                            <h3>Dashboard Preferences</h3>
+                            <div class="setting-item">
+                                <div class="setting-info">
+                                    <label>Default Dashboard View</label>
+                                    <p>Choose your preferred landing page</p>
+                                </div>
+                                <select class="setting-select">
+                                    <option value="overview" selected>Overview</option>
+                                    <option value="academics">Academics</option>
+                                    <option value="assignments">Assignments</option>
+                                    <option value="grades">Grades</option>
+                                </select>
+                            </div>
+                            
+                            <div class="setting-item">
+                                <div class="setting-info">
+                                    <label>Show Quick Actions</label>
+                                    <p>Display quick action buttons on dashboard</p>
+                                </div>
+                                <div class="toggle-switch">
+                                    <input type="checkbox" id="quickActions" checked>
+                                    <label for="quickActions"></label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Appearance Settings -->
+                    <div class="settings-section" id="appearance">
+                        <div class="section-header">
+                            <h2>Appearance</h2>
+                            <p>Customize the look and feel of your interface</p>
+                        </div>
+                        
+                        <div class="settings-group">
+                            <h3>Theme</h3>
+                            <div class="theme-options">
+                                <div class="theme-option active" data-theme="light">
+                                    <div class="theme-preview light">
+                                        <div class="preview-header"></div>
+                                        <div class="preview-content">
+                                            <div class="preview-sidebar"></div>
+                                            <div class="preview-main"></div>
+                                        </div>
+                                    </div>
+                                    <div class="theme-info">
+                                        <h4>Light</h4>
+                                        <p>Clean and bright interface</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="theme-option" data-theme="dark">
+                                    <div class="theme-preview dark">
+                                        <div class="preview-header"></div>
+                                        <div class="preview-content">
+                                            <div class="preview-sidebar"></div>
+                                            <div class="preview-main"></div>
+                                        </div>
+                                    </div>
+                                    <div class="theme-info">
+                                        <h4>Dark</h4>
+                                        <p>Easy on the eyes</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="theme-option" data-theme="auto">
+                                    <div class="theme-preview auto">
+                                        <div class="preview-header"></div>
+                                        <div class="preview-content">
+                                            <div class="preview-sidebar"></div>
+                                            <div class="preview-main"></div>
+                                        </div>
+                                    </div>
+                                    <div class="theme-info">
+                                        <h4>Auto</h4>
+                                        <p>Matches system preference</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="settings-group">
+                            <h3>Display Options</h3>
+                            <div class="setting-item">
+                                <div class="setting-info">
+                                    <label>Font Size</label>
+                                    <p>Adjust text size for better readability</p>
+                                </div>
+                                <select class="setting-select">
+                                    <option value="small">Small</option>
+                                    <option value="medium" selected>Medium</option>
+                                    <option value="large">Large</option>
+                                    <option value="extra-large">Extra Large</option>
+                                </select>
+                            </div>
+                            
+                            <div class="setting-item">
+                                <div class="setting-info">
+                                    <label>Compact Mode</label>
+                                    <p>Show more content in less space</p>
+                                </div>
+                                <div class="toggle-switch">
+                                    <input type="checkbox" id="compactMode">
+                                    <label for="compactMode"></label>
+                                </div>
+                            </div>
+                            
+                            <div class="setting-item">
+                                <div class="setting-info">
+                                    <label>Animations</label>
+                                    <p>Enable smooth transitions and effects</p>
+                                </div>
+                                <div class="toggle-switch">
+                                    <input type="checkbox" id="animations" checked>
+                                    <label for="animations"></label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Notification Settings -->
+                    <div class="settings-section" id="notifications">
+                        <div class="section-header">
+                            <h2>Notifications</h2>
+                            <p>Control how and when you receive notifications</p>
+                        </div>
+                        
+                        <div class="settings-group">
+                            <h3>Email Notifications</h3>
+                            <div class="setting-item">
+                                <div class="setting-info">
+                                    <label>Assignment Notifications</label>
+                                    <p>Get notified about new assignments and due dates</p>
+                                </div>
+                                <div class="toggle-switch">
+                                    <input type="checkbox" id="assignmentEmails" checked>
+                                    <label for="assignmentEmails"></label>
+                                </div>
+                            </div>
+                            
+                            <div class="setting-item">
+                                <div class="setting-info">
+                                    <label>Grade Updates</label>
+                                    <p>Receive emails when grades are posted</p>
+                                </div>
+                                <div class="toggle-switch">
+                                    <input type="checkbox" id="gradeEmails" checked>
+                                    <label for="gradeEmails"></label>
+                                </div>
+                            </div>
+                            
+                            <div class="setting-item">
+                                <div class="setting-info">
+                                    <label>Payment Reminders</label>
+                                    <p>Get reminded about upcoming payment due dates</p>
+                                </div>
+                                <div class="toggle-switch">
+                                    <input type="checkbox" id="paymentEmails" checked>
+                                    <label for="paymentEmails"></label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="settings-group">
+                            <h3>Push Notifications</h3>
+                            <div class="setting-item">
+                                <div class="setting-info">
+                                    <label>Browser Notifications</label>
+                                    <p>Show notifications in your browser</p>
+                                </div>
+                                <div class="toggle-switch">
+                                    <input type="checkbox" id="browserNotifications" checked>
+                                    <label for="browserNotifications"></label>
+                                </div>
+                            </div>
+                            
+                            <div class="setting-item">
+                                <div class="setting-info">
+                                    <label>Sound Alerts</label>
+                                    <p>Play sound when notifications arrive</p>
+                                </div>
+                                <div class="toggle-switch">
+                                    <input type="checkbox" id="soundAlerts">
+                                    <label for="soundAlerts"></label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="settings-group">
+                            <h3>Notification Schedule</h3>
+                            <div class="setting-item">
+                                <div class="setting-info">
+                                    <label>Quiet Hours</label>
+                                    <p>Don't send notifications during these hours</p>
+                                </div>
+                                <div class="time-range">
+                                    <input type="time" value="22:00" class="time-input">
+                                    <span>to</span>
+                                    <input type="time" value="07:00" class="time-input">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Privacy & Security Settings -->
+                    <div class="settings-section" id="privacy">
+                        <div class="section-header">
+                            <h2>Privacy & Security</h2>
+                            <p>Manage your privacy settings and account security</p>
+                        </div>
+                        
+                        <div class="settings-group">
+                            <h3>Account Security</h3>
+                            <div class="setting-item">
+                                <div class="setting-info">
+                                    <label>Two-Factor Authentication</label>
+                                    <p>Add an extra layer of security to your account</p>
+                                </div>
+                                <button class="btn btn-outline">Enable 2FA</button>
+                            </div>
+                            
+                            <div class="setting-item">
+                                <div class="setting-info">
+                                    <label>Login Alerts</label>
+                                    <p>Get notified of new login attempts</p>
+                                </div>
+                                <div class="toggle-switch">
+                                    <input type="checkbox" id="loginAlerts" checked>
+                                    <label for="loginAlerts"></label>
+                                </div>
+                            </div>
+                            
+                            <div class="setting-item">
+                                <div class="setting-info">
+                                    <label>Session Timeout</label>
+                                    <p>Automatically log out after inactivity</p>
+                                </div>
+                                <select class="setting-select">
+                                    <option value="15">15 minutes</option>
+                                    <option value="30" selected>30 minutes</option>
+                                    <option value="60">1 hour</option>
+                                    <option value="120">2 hours</option>
+                                    <option value="never">Never</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="settings-group">
+                            <h3>Privacy Controls</h3>
+                            <div class="setting-item">
+                                <div class="setting-info">
+                                    <label>Profile Visibility</label>
+                                    <p>Who can see your profile information</p>
+                                </div>
+                                <select class="setting-select">
+                                    <option value="everyone">Everyone</option>
+                                    <option value="school" selected>School Community</option>
+                                    <option value="class">Class Members Only</option>
+                                    <option value="private">Private</option>
+                                </select>
+                            </div>
+                            
+                            <div class="setting-item">
+                                <div class="setting-info">
+                                    <label>Activity Status</label>
+                                    <p>Show when you're online to others</p>
+                                </div>
+                                <div class="toggle-switch">
+                                    <input type="checkbox" id="activityStatus" checked>
+                                    <label for="activityStatus"></label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="settings-group">
+                            <h3>Data Management</h3>
+                            <div class="setting-item">
+                                <div class="setting-info">
+                                    <label>Download Your Data</label>
+                                    <p>Get a copy of your account data</p>
+                                </div>
+                                <button class="btn btn-outline">Request Download</button>
+                            </div>
+                            
+                            <div class="setting-item">
+                                <div class="setting-info">
+                                    <label>Delete Account</label>
+                                    <p>Permanently delete your account and data</p>
+                                </div>
+                                <button class="btn btn-danger">Delete Account</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Language & Region Settings -->
+                    <div class="settings-section" id="language">
+                        <div class="section-header">
+                            <h2>Language & Region</h2>
+                            <p>Set your language and regional preferences</p>
+                        </div>
+                        
+                        <div class="settings-group">
+                            <h3>Language Settings</h3>
+                            <div class="setting-item">
+                                <div class="setting-info">
+                                    <label>Display Language</label>
+                                    <p>Choose your preferred language</p>
+                                </div>
+                                <select class="setting-select">
+                                    <option value="en" selected>English</option>
+                                    <option value="fr">Français</option>
+                                    <option value="es">Español</option>
+                                    <option value="yo">Yorùbá</option>
+                                    <option value="ig">Igbo</option>
+                                    <option value="ha">Hausa</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="settings-group">
+                            <h3>Regional Settings</h3>
+                            <div class="setting-item">
+                                <div class="setting-info">
+                                    <label>Country/Region</label>
+                                    <p>Your location for regional content</p>
+                                </div>
+                                <select class="setting-select">
+                                    <option value="NG" selected>Nigeria</option>
+                                    <option value="GH">Ghana</option>
+                                    <option value="KE">Kenya</option>
+                                    <option value="ZA">South Africa</option>
+                                    <option value="US">United States</option>
+                                    <option value="GB">United Kingdom</option>
+                                </select>
+                            </div>
+                            
+                            <div class="setting-item">
+                                <div class="setting-info">
+                                    <label>Currency</label>
+                                    <p>Display currency for payments</p>
+                                </div>
+                                <select class="setting-select">
+                                    <option value="NGN" selected>Nigerian Naira (₦)</option>
+                                    <option value="USD">US Dollar ($)</option>
+                                    <option value="GBP">British Pound (£)</option>
+                                    <option value="EUR">Euro (€)</option>
+                                </select>
+                            </div>
+                            
+                            <div class="setting-item">
+                                <div class="setting-info">
+                                    <label>Date Format</label>
+                                    <p>How dates are displayed</p>
+                                </div>
+                                <select class="setting-select">
+                                    <option value="DD/MM/YYYY" selected>DD/MM/YYYY</option>
+                                    <option value="MM/DD/YYYY">MM/DD/YYYY</option>
+                                    <option value="YYYY-MM-DD">YYYY-MM-DD</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Accessibility Settings -->
+                    <div class="settings-section" id="accessibility">
+                        <div class="section-header">
+                            <h2>Accessibility</h2>
+                            <p>Make the platform more accessible for your needs</p>
+                        </div>
+                        
+                        <div class="settings-group">
+                            <h3>Visual Accessibility</h3>
+                            <div class="setting-item">
+                                <div class="setting-info">
+                                    <label>High Contrast Mode</label>
+                                    <p>Increase contrast for better visibility</p>
+                                </div>
+                                <div class="toggle-switch">
+                                    <input type="checkbox" id="highContrast">
+                                    <label for="highContrast"></label>
+                                </div>
+                            </div>
+                            
+                            <div class="setting-item">
+                                <div class="setting-info">
+                                    <label>Large Text</label>
+                                    <p>Increase text size for better readability</p>
+                                </div>
+                                <div class="toggle-switch">
+                                    <input type="checkbox" id="largeText">
+                                    <label for="largeText"></label>
+                                </div>
+                            </div>
+                            
+                            <div class="setting-item">
+                                <div class="setting-info">
+                                    <label>Reduce Motion</label>
+                                    <p>Minimize animations and transitions</p>
+                                </div>
+                                <div class="toggle-switch">
+                                    <input type="checkbox" id="reduceMotion">
+                                    <label for="reduceMotion"></label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="settings-group">
+                            <h3>Keyboard Navigation</h3>
+                            <div class="setting-item">
+                                <div class="setting-info">
+                                    <label>Keyboard Shortcuts</label>
+                                    <p>Enable keyboard shortcuts for navigation</p>
+                                </div>
+                                <div class="toggle-switch">
+                                    <input type="checkbox" id="keyboardShortcuts" checked>
+                                    <label for="keyboardShortcuts"></label>
+                                </div>
+                            </div>
+                            
+                            <div class="setting-item">
+                                <div class="setting-info">
+                                    <label>Focus Indicators</label>
+                                    <p>Show clear focus indicators for keyboard navigation</p>
+                                </div>
+                                <div class="toggle-switch">
+                                    <input type="checkbox" id="focusIndicators" checked>
+                                    <label for="focusIndicators"></label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Advanced Settings -->
+                    <div class="settings-section" id="advanced">
+                        <div class="section-header">
+                            <h2>Advanced Settings</h2>
+                            <p>Advanced options for power users</p>
+                        </div>
+                        
+                        <div class="settings-group">
+                            <h3>Performance</h3>
+                            <div class="setting-item">
+                                <div class="setting-info">
+                                    <label>Hardware Acceleration</label>
+                                    <p>Use GPU acceleration when available</p>
+                                </div>
+                                <div class="toggle-switch">
+                                    <input type="checkbox" id="hardwareAcceleration" checked>
+                                    <label for="hardwareAcceleration"></label>
+                                </div>
+                            </div>
+                            
+                            <div class="setting-item">
+                                <div class="setting-info">
+                                    <label>Preload Content</label>
+                                    <p>Load content in advance for faster navigation</p>
+                                </div>
+                                <div class="toggle-switch">
+                                    <input type="checkbox" id="preloadContent" checked>
+                                    <label for="preloadContent"></label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="settings-group">
+                            <h3>Developer Options</h3>
+                            <div class="setting-item">
+                                <div class="setting-info">
+                                    <label>Debug Mode</label>
+                                    <p>Enable debugging information (for developers)</p>
+                                </div>
+                                <div class="toggle-switch">
+                                    <input type="checkbox" id="debugMode">
+                                    <label for="debugMode"></label>
+                                </div>
+                            </div>
+                            
+                            <div class="setting-item">
+                                <div class="setting-info">
+                                    <label>Beta Features</label>
+                                    <p>Enable experimental features</p>
+                                </div>
+                                <div class="toggle-switch">
+                                    <input type="checkbox" id="betaFeatures">
+                                    <label for="betaFeatures"></label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="settings-group">
+                            <h3>Data & Storage</h3>
+                            <div class="setting-item">
+                                <div class="setting-info">
+                                    <label>Clear Cache</label>
+                                    <p>Clear stored data to free up space</p>
+                                </div>
+                                <button class="btn btn-outline">Clear Cache</button>
+                            </div>
+                            
+                            <div class="setting-item">
+                                <div class="setting-info">
+                                    <label>Export Settings</label>
+                                    <p>Download your settings as a backup</p>
+                                </div>
+                                <button class="btn btn-outline">Export Settings</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Container -->
+    <div id="toastContainer" class="toast-container"></div>
+
+    <script src="js/main.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="js/settings.js"></script>
+</body>
+</html>
